@@ -1,0 +1,191 @@
+@charset "UTF-8";
+html {
+  box-sizing: border-box;
+  background-color: #faf2de;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body {
+  font-family: "Cabin", Arial, Geneva, sans-serif;
+  background-image: url(../img/clouds.png);
+  margin: 0 auto;
+  padding: 5%;
+  min-width: 300px;
+  max-width: 900px;
+}
+
+button {
+  display: block;
+  margin: 5% auto;
+  border: 1px solid lightgray;
+  background-color: #665738;
+  color: white;
+  height: 30px;
+  font-weight: bold;
+  font-family: "Neuton";
+  text-transform: uppercase;
+  border-radius: 5px;
+}
+h1 {
+  font-family: "Mr De Haviland";
+  text-align: center;
+  font-size: 3.2em;
+  color: black;
+}
+
+h2 {
+  font-family: "Mr De Haviland";
+  font-size: 1.8em;
+  padding: 0;
+  margin: 0;
+  color: black;
+}
+h3 {
+  font-family: "Neuton";
+  font-size: 0.8em;
+}
+h4,
+h5,
+h6 {
+  font-family: "Niconne", cursive;
+  font-weight: normal;
+  color: #c80060;
+  margin-top: 0;
+}
+
+p {
+  font-family: "Neuton";
+}
+
+iframe {
+  height: 220px;
+  width: 350px;
+  display: block;
+  border-radius: 10px;
+  -webkit-box-shadow: 14px 13px 31px -13px rgba(0, 0, 0, 0.55);
+  -moz-box-shadow: 14px 13px 31px -13px rgba(0, 0, 0, 0.55);
+  box-shadow: 14px 13px 31px -13px rgba(0, 0, 0, 0.55);
+  margin: 0 auto;
+}
+
+/* .header, */
+
+.vid {
+  margin-bottom: 10px;
+  height: 30px;
+}
+.pic,
+.instructions,
+.ingredients {
+  margin-bottom: 10px;
+}
+
+.pic img {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 10px;
+  -webkit-box-shadow: 14px 13px 31px -13px rgba(0, 0, 0, 0.55);
+  -moz-box-shadow: 14px 13px 31px -13px rgba(0, 0, 0, 0.55);
+  box-shadow: 14px 13px 31px -13px rgba(0, 0, 0, 0.55);
+  min-width: 300px;
+  max-width: 400px;
+}
+
+.container {
+  display: block;
+}
+.header {
+  text-align: center;
+  font-size: 3em;
+  padding: 0;
+  margin: 0;
+}
+.pic {
+  grid-area: pic;
+  /* border: solid 1px grey;
+  border-radius: 5px; */
+}
+.instructions {
+  grid-area: instructions;
+  padding: 5%;
+  line-height: 1.6em;
+}
+.ingredients {
+  grid-area: ingredients;
+  padding: 5%;
+  list-style-type: none;
+}
+li {
+  padding: 0;
+  margin-left: -25px;
+  list-style-type: circle;
+  line-height: 1.4em;
+}
+.vid {
+  grid-area: vid;
+}
+
+/* medium and large devices ( 550px <= x < 750px) */
+@media (min-width: 550px) {
+  .header,
+  .pic,
+  .instructions,
+  .ingredients,
+  .vid {
+    margin-bottom: 0;
+  }
+
+  .container {
+    padding-bottom: 0;
+    display: grid;
+    gap: 25px;
+    grid-template-columns: 2fr 3fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "header header"
+      "pic instructions"
+      "ingredients instructions"
+      "videoWrapper videoWrapper";
+  }
+  .header {
+    grid-area: header;
+  }
+  .pic {
+    grid-area: pic;
+  }
+  .instructions {
+    grid-area: instructions;
+  }
+  .ingredients {
+    grid-area: ingredients;
+  }
+  .videoWrapper {
+    grid-area: videoWrapper;
+  }
+
+  iframe {
+    height: 350px;
+    width: 500px;
+  }
+}
+/* medium and large devices ( 750 <= x ) */
+@media (min-width: 750px) {
+  .container {
+    grid-template-columns: 2fr 3fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "header header"
+      "ingredients pic"
+      "instructions instructions"
+      "videoWrapper videoWrapper";
+  }
+
+  iframe {
+    height: 440px;
+    width: 700px;
+  }
+}
